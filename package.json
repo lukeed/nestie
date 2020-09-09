@@ -1,6 +1,6 @@
 {
   "name": "nestie",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "repository": "lukeed/nestie",
   "description": "A tiny (211B) and fast utility to expand a flattened object",
   "unpkg": "dist/index.min.js",
