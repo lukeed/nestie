@@ -158,10 +158,10 @@ nestie(input, '_');
 
 ```
 Load Time:
-  dset         0.803ms
-  lodash/set  13.120ms
-  flat         2.017ms
-  nestie       0.272ms
+  dset         0.746ms
+  lodash/set  12.056ms
+  flat         1.675ms
+  nestie       0.250ms
 
 Validation:
   ✘ lodash/set ≠ (FAILED) @ "array w/ holes"
@@ -170,10 +170,10 @@ Validation:
   ✔ nestie
 
 Benchmark:
-  lodash/set ≠    x 239,635 ops/sec ±1.02% (91 runs sampled)
-  dset ≠          x 331,462 ops/sec ±1.40% (91 runs sampled)
-  flat.unflatten  x 122,560 ops/sec ±1.04% (92 runs sampled)
-  nestie          x 473,780 ops/sec ±0.68% (90 runs sampled)
+  lodash/set ≠     x 246,481 ops/sec ±1.20% (91 runs sampled)
+  dset ≠           x 337,690 ops/sec ±1.38% (92 runs sampled)
+  flat.unflatten   x 125,439 ops/sec ±1.57% (92 runs sampled)
+  nestie           x 494,926 ops/sec ±0.64% (94 runs sampled)
 ```
 
 
