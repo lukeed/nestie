@@ -2,13 +2,11 @@ import { test } from 'uvu';
 import * as assert from 'uvu/assert';
 import { nestie } from '../src';
 
-
 function run(input, output, msg) {
 	const value = JSON.stringify(input);
 	assert.equal(nestie(input), output, msg);
 	assert.is(JSON.stringify(input), value, 'does not mutate');
 }
-
 
 test('exports', () => {
 	assert.type(nestie, 'function');
