@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "benchmark": "2.1.4",
+    "dset": "2.0.1",
+    "flat": "5.0.2",
+    "klona": "2.0.3",
+    "lodash": "4.17.20"
+  }
+}
