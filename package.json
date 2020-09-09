@@ -1,0 +1,47 @@
+{
+  "name": "nestie",
+  "version": "0.0.0",
+  "repository": "lukeed/nestie",
+  "description": "A tiny (210B) and fast utility to expand a flattened object",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "https://lukeed.com"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.d.ts",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "bundt",
+    "bench": "node bench",
+    "test": "uvu -r esm test"
+  },
+  "keywords": [
+    "keys",
+    "expand",
+    "unflatten",
+    "object",
+    "nested"
+  ],
+  "devDependencies": {
+    "bundt": "1.1.1",
+    "esm": "3.2.25",
+    "uvu": "0.3.3"
+  }
+}
