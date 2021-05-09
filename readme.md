@@ -181,7 +181,7 @@ Benchmark:
 
 * [flattie](https://github.com/lukeed/flattie) – flatten an object using customizable glue in 187 bytes <br>_This is `nestie`'s reverse / counterpart._
 * [dset](https://github.com/lukeed/dset) – safely write deep Object values in 160 bytes
-* [dlv](https://github.com/lukeed/dset) – safely read from deep properties in 120 bytes
+* [dlv](https://github.com/developit/dlv) – safely read from deep properties in 120 bytes
 
 
 ## License
