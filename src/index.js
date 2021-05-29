@@ -14,9 +14,14 @@ export function nestie(input, glue) {
 
 		for (i=0; i < arr.length;) {
 			key = arr[i++];
+
 			if (tmp == null) {
 				tmp = empty(''+key);
 				output = output || tmp;
+			}
+
+			if (key == '__proto__') {
+				break;
 			}
 
 			if (i < arr.length) {

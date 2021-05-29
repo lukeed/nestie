@@ -428,4 +428,46 @@ test('array :: kitchen', () => {
 	]);
 });
 
+test('proto pollution :: toplevel', () => {
+	let output = nestie({
+		'__proto__.foobar': 123
+	});
+
+	let tmp = {};
+	assert.equal(output, {});
+	assert.is(tmp.foobar, undefined);
+});
+
+test('proto pollution :: midlevel', () => {
+	let output = nestie({
+		'aaa.__proto__.foobar': 123
+	});
+
+	let tmp = {};
+	assert.equal(output, { aaa: {} });
+	assert.is(tmp.foobar, undefined);
+});
+
+test('proto pollution :: sibling', () => {
+	let output = nestie({
+		'aaa.bbb': 'abc',
+		'__proto__.foobar': 123,
+		'aaa.xxx': 'xxx',
+		'foo.bar': 456,
+	});
+
+	assert.equal(output, {
+		aaa: {
+			bbb: 'abc',
+			xxx: 'xxx',
+		},
+		foo: {
+			bar: 456
+		}
+	});
+
+	let tmp = {};
+	assert.is(tmp.foobar, undefined);
+});
+
 test.run();
