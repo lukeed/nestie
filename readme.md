@@ -170,10 +170,10 @@ Validation:
   ✔ nestie
 
 Benchmark:
-  lodash/set ≠     x 246,481 ops/sec ±1.20% (91 runs sampled)
-  dset ≠           x 337,690 ops/sec ±1.38% (92 runs sampled)
-  flat.unflatten   x 125,439 ops/sec ±1.57% (92 runs sampled)
-  nestie           x 494,926 ops/sec ±0.64% (94 runs sampled)
+  lodash/set ≠     x 235,661 ops/sec ±1.60% (88 runs sampled)
+  dset ≠           x 329,029 ops/sec ±1.25% (90 runs sampled)
+  flat.unflatten   x 119,864 ops/sec ±1.23% (93 runs sampled)
+  nestie           x 473,258 ops/sec ±0.62% (90 runs sampled)
 ```
 
 
