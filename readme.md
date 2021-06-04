@@ -1,6 +1,6 @@
 # nestie [![CI](https://github.com/lukeed/nestie/workflows/CI/badge.svg)](https://github.com/lukeed/nestie/actions) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/nestie)](https://codecov.io/gh/lukeed/nestie)
 
-> A tiny (224B) and [fast](#benchmarks) utility to expand a flattened object
+> A tiny (242B) and [fast](#benchmarks) utility to expand a flattened object
 
 This module expands an Object who's keys are delimited/condensed representatives of multiple levels.
 
