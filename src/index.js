@@ -20,9 +20,7 @@ export function nestie(input, glue) {
 				output = output || tmp;
 			}
 
-			if (key == '__proto__') {
-				break;
-			}
+			if (key == '__proto__' || key == 'constructor' || key == 'prototype') break;
 
 			if (i < arr.length) {
 				if (key in tmp) {

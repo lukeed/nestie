@@ -428,7 +428,7 @@ test('array :: kitchen', () => {
 	]);
 });
 
-test('proto pollution :: toplevel', () => {
+test('proto pollution :: __proto__ :: toplevel', () => {
 	let output = nestie({
 		'__proto__.foobar': 123
 	});
@@ -438,7 +438,7 @@ test('proto pollution :: toplevel', () => {
 	assert.is(tmp.foobar, undefined);
 });
 
-test('proto pollution :: midlevel', () => {
+test('proto pollution :: __proto__ :: midlevel', () => {
 	let output = nestie({
 		'aaa.__proto__.foobar': 123
 	});
@@ -448,7 +448,7 @@ test('proto pollution :: midlevel', () => {
 	assert.is(tmp.foobar, undefined);
 });
 
-test('proto pollution :: sibling', () => {
+test('proto pollution :: __proto__ :: sibling', () => {
 	let output = nestie({
 		'aaa.bbb': 'abc',
 		'__proto__.foobar': 123,
@@ -468,6 +468,72 @@ test('proto pollution :: sibling', () => {
 
 	let tmp = {};
 	assert.is(tmp.foobar, undefined);
+});
+
+test('proto pollution :: prototype', () => {
+	let output = nestie({
+		'a.prototype.hello': 'world',
+	});
+
+	assert.equal(output, {
+		a: {
+			// converted, then aborted
+		}
+	});
+
+	assert.is.not({}.hello, 'world');
+	assert.is({}.hello, undefined);
+});
+
+test('proto pollution :: constructor :: direct', () => {
+	function Custom() {
+		//
+	}
+
+	let output = nestie({
+		'a.constructor': Custom,
+		'foo.bar': 123,
+	});
+
+	assert.equal(output, {
+		a: {
+			// stopped
+		},
+		foo: {
+			bar: 123,
+		}
+	});
+
+	// Check existing object
+	assert.is.not(output.a.constructor, Custom);
+	assert.not.instance(output.a, Custom);
+	assert.instance(output.a.constructor, Object, '~> 123 -> {}');
+	assert.is(output.a.hasOwnProperty('constructor'), false);
+
+	let tmp = {}; // Check new object
+	assert.is.not(tmp.constructor, Custom);
+	assert.not.instance(tmp, Custom);
+
+	assert.instance(tmp.constructor, Object, '~> 123 -> {}');
+	assert.is(tmp.hasOwnProperty('constructor'), false);
+});
+
+test('proto pollution :: constructor :: nested', () => {
+	let output = nestie({
+		'constructor.prototype.hello': 'world',
+		'foo': 123,
+	});
+
+	assert.equal(output, {
+		foo: 123
+	});
+
+	assert.is(output.hasOwnProperty('constructor'), false);
+	assert.is(output.hasOwnProperty('hello'), false);
+
+	let tmp = {};
+	assert.is(tmp.hasOwnProperty('constructor'), false);
+	assert.is(tmp.hasOwnProperty('hello'), false);
 });
 
 test.run();
