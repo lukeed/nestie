@@ -152,16 +152,16 @@ nestie(input, '_');
 
 ## Benchmarks
 
-> Running on Node.js v10.13.0
+> Running on Node.js v18.12.1
 
 > **Note:** The `≠` denotes that the candidate has a different API and is not a direct comparison.
 
 ```
 Load Time:
-  dset         0.746ms
-  lodash/set  12.056ms
-  flat         1.675ms
-  nestie       0.250ms
+  dset         0.421ms
+  lodash/set   5.472ms
+  flat         0.926ms
+  nestie       0.131ms
 
 Validation:
   ✘ lodash/set ≠ (FAILED) @ "array w/ holes"
@@ -170,10 +170,10 @@ Validation:
   ✔ nestie
 
 Benchmark:
-  lodash/set ≠     x 235,661 ops/sec ±1.60% (88 runs sampled)
-  dset ≠           x 329,029 ops/sec ±1.25% (90 runs sampled)
-  flat.unflatten   x 119,864 ops/sec ±1.23% (93 runs sampled)
-  nestie           x 473,258 ops/sec ±0.62% (90 runs sampled)
+  lodash/set ≠     x 365,431 ops/sec ±0.46% (96 runs sampled)
+  dset ≠           x 528,696 ops/sec ±0.12% (99 runs sampled)
+  flat.unflatten   x 235,161 ops/sec ±0.16% (98 runs sampled)
+  nestie           x 565,665 ops/sec ±0.13% (99 runs sampled)
 ```
 
 
