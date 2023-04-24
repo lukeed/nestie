@@ -1,6 +1,5 @@
 function empty(key) {
-	var char = key.charCodeAt(0);
-	return (char > 47 && char < 58) ? [] : {};
+	return key === key ? [] : {};
 }
 
 export function nestie(input, glue) {
@@ -16,7 +15,7 @@ export function nestie(input, glue) {
 			key = arr[i++];
 
 			if (tmp == null) {
-				tmp = empty(''+key);
+				tmp = empty(+key);
 				output = output || tmp;
 			}
 
@@ -26,7 +25,7 @@ export function nestie(input, glue) {
 				if (key in tmp) {
 					tmp = tmp[key];
 				} else {
-					tmp = tmp[key] = empty(''+arr[i]);
+					tmp = tmp[key] = empty(+arr[i]);
 				}
 			} else {
 				tmp[key] = input[k];

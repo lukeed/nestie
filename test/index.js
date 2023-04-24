@@ -168,6 +168,22 @@ test('object :: nested', () => {
 	});
 });
 
+// https://github.com/lukeed/nestie/issues/3
+test('NaN keys', () => {
+	run({
+		'foo.7f4d': 12
+	}, {
+		'foo': {
+			'7f4d': 12
+		}
+	});
+
+	run(
+		{ '1.1a': 5 },
+		[ , { '1a': 5 }]
+	);
+});
+
 test('object :: kitchen', () => {
 	run({
 		'a': 1,
