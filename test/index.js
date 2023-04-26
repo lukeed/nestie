@@ -184,6 +184,16 @@ test('NaN keys', () => {
 	);
 });
 
+test('empty key', () => {
+	run({
+		'foo.': 12
+	}, {
+		'foo': {
+			'': 12
+		}
+	});
+});
+
 test('object :: kitchen', () => {
 	run({
 		'a': 1,
