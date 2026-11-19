@@ -33,5 +33,5 @@ export function nestie(input, glue) {
 		}
 	}
 
-	return output;
+	return output || (input && Object.prototype.toString.call(input) === '[object Object]' ? {} : output);
 }
