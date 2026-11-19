@@ -22,6 +22,13 @@ test('wrong inputs', () => {
 	run(NaN, undefined);
 });
 
+test('empty input', () => {
+	run({}, {});
+	run([], undefined);
+	run(new Date(0), undefined);
+	run(new Map(), undefined);
+});
+
 test('custom glue', () => {
 	const input = {
 		'foo.bar': 123,
